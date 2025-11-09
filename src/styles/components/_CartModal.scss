@@ -1,0 +1,296 @@
+/* src/styles/components/_CartModal.scss */
+
+/* Modal container used by CartModal.jsx */
+.modal-content.fixed-layout {
+  display: flex;
+  flex-direction: column;
+  width: 92%;
+  max-width: 430px;
+  height: 90vh;
+  max-height: 90vh;
+  margin: 0 auto;
+  background: #fffaf7;
+  border-radius: 1.2rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  padding: 0.9rem 1rem;
+  overflow: hidden; /* keep footer sticky while inner area scrolls */
+  position: relative;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* header (kept as-is in JSX) */
+.modal-header {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #b23a3a;
+  font-weight: 700;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  color: #b23a3a;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+
+/* MAIN scroll area for order list */
+.cart-scroll {
+  flex: 1 1 auto;         /* critical: allow this area to grow and scroll */
+  overflow-y: auto;       /* enable vertical scroll */
+  -webkit-overflow-scrolling: touch;
+  padding: 0.9rem 0.3rem 0.6rem 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(210,84,70,0.18) transparent;
+}
+
+/* custom webkit scrollbar */
+.cart-scroll::-webkit-scrollbar { width: 6px; }
+.cart-scroll::-webkit-scrollbar-thumb {
+  background: rgba(210,84,70,0.18);
+  border-radius: 6px;
+}
+
+/* Fade overlay at bottom so sticky footer appears above list elegantly */
+.cart-scroll::after {
+  content: "";
+  pointer-events: none;
+  position: sticky;
+  bottom: 0;
+  height: 48px;
+  margin-top: -48px;
+  background: linear-gradient(to top, rgba(255,250,247,1), rgba(255,250,247,0));
+  display: block;
+}
+
+/* Cart item card */
+.cart-item.improved {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 0.8rem 0.95rem;
+  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* item info (name + price) */
+.cart-item-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.cart-item-info h4 {
+  margin: 0;
+  font-size: clamp(0.95rem, 2.2vw, 1rem);
+  font-weight: 600;
+  color: #111;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart-item-info p {
+  margin: 0.25rem 0 0 0;
+  color: #d25446;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* controls (trash, minus, plus) — keep original sizes so icons don't break */
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.cart-item-controls button {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  min-height: 34px;
+  border-radius: 9px;
+  border: 1.5px solid rgba(210,84,70,0.12);
+  background: #fff;
+  color: #d25446;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+
+.cart-item-controls button:hover {
+  transform: translateY(-2px);
+  background: rgba(210,84,70,0.06);
+}
+
+/* quantity badge */
+.cart-item-controls .quantity {
+  width: 30px;
+  text-align: center;
+  font-weight: 600;
+  color: #111;
+  font-size: 0.98rem;
+  line-height: 1;
+}
+
+/* Estimate timer container */
+.modal-estimate-container {
+  flex-shrink: 0;
+  margin-top: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+
+/* Customer info inputs stacked vertically (Nama di atas, Meja di bawah) */
+.modal-customer-info {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 0.55rem;
+  padding: 0 0.2rem;
+}
+
+.modal-customer-info input {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+  border: 1.4px solid rgba(0,0,0,0.08);
+  font-size: 0.95rem;
+  outline: none;
+  background: #fff;
+}
+
+.modal-customer-info input::placeholder {
+  color: rgba(100,90,85,0.45);
+}
+
+.modal-customer-info input:focus {
+  border-color: #d34b4b;
+  box-shadow: 0 0 0 3px rgba(211,75,75,0.06);
+}
+
+/* Footer (sticky) */
+.cart-footer {
+  flex-shrink: 0;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.9rem 1rem;
+  background: linear-gradient(to top, #fffaf7 92%, rgba(255,250,247,0.95));
+  border-top: 1px solid rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  z-index: 30;
+}
+
+/* total line */
+.footer-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  color: #111;
+  font-size: 1rem;
+}
+
+/* Checkout / Pay button — ensure icon + text vertically centered optically */
+.footer-checkout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.88rem 0.85rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #d25446, #b8453c);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.98rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(210,84,70,0.12);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+/* Align icon visually: slightly lift icon to compensate optical baseline */
+.footer-checkout-btn svg {
+  font-size: 1.05rem;
+  display: inline-block;
+  transform: translateY(-0.3px);
+}
+
+/* Disabled state preservation */
+.footer-checkout-btn.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  transform: none;
+  box-shadow: none;
+}
+
+/* helper small text under button */
+.cart-footer .text-center {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #666;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .modal-content.fixed-layout {
+    width: 96%;
+    padding: 0.75rem 0.9rem;
+    border-radius: 12px;
+    height: 88vh;
+  }
+
+  .cart-item.improved {
+    padding: 0.7rem 0.85rem;
+  }
+
+  .cart-item-controls button {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    border-radius: 8px;
+    font-size: 0.98rem;
+  }
+
+  .cart-item-controls .quantity {
+    width: 28px;
+  }
+
+  .footer-checkout-btn {
+    padding: 0.82rem 0.6rem;
+    font-size: 0.95rem;
+  }
+}

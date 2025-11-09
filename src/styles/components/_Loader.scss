@@ -1,0 +1,68 @@
+.brand-loader {
+  position: fixed;
+  inset: 0;
+  background-color: #fffaf7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  animation: fadeOutScreen 0.8s ease 2.8s forwards;
+}
+
+.brand-logo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 1rem;
+  object-fit: cover;
+  opacity: 0;
+  animation: logoAppear 1s ease forwards;
+}
+
+.brand-text {
+  text-align: center;
+  margin-top: 1.2rem;
+  color: #d25446;
+}
+
+.brand-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: textReveal 0.8s ease 1s forwards;
+}
+
+.credit-line {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  opacity: 0;
+  animation: fadeInCredit 0.8s ease 1.8s forwards;
+
+  span {
+    color: #b26459;
+    font-weight: 600;
+  }
+}
+
+/* 🎞 Animations */
+@keyframes logoAppear {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes textReveal {
+  from { opacity: 0; transform: translateY(10px); letter-spacing: 10px; }
+  to { opacity: 1; transform: translateY(0); letter-spacing: 2px; }
+}
+
+@keyframes fadeInCredit {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOutScreen {
+  to { opacity: 0; visibility: hidden; }
+}

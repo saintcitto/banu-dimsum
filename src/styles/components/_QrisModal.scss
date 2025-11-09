@@ -1,0 +1,101 @@
+@use "sass:color";
+@use "../abstracts/variables";
+
+.qris-modal {
+  width: 90%;
+  max-width: 300px; // Reduced max-width for a more compact modal
+  max-height: 80vh; // Slightly reduced max-height
+  overflow-y: auto;
+  padding: 15px; // Reduced padding
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; // Center content horizontally
+
+  .modal-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h3 {
+      font-size: 1.2em;
+      color: var(--primary-color);
+    }
+  }
+
+  .payment-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; // Slightly reduced gap
+    flex-grow: 1;
+    padding: 0 10px;
+  }
+
+  .qr-section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px; // Added padding around QR box
+  }
+
+  .qr-box {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+
+  .qris-image {
+    width: 100%;
+    max-width: 200px; // Further reduced max-width for QR code
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .payment-info {
+    width: 100%;
+    text-align: center;
+    p {
+      font-size: 1em; // Slightly smaller font size
+      font-weight: bold;
+      margin-bottom: 5px; // Reduced margin
+      color: var(--text-color);
+    }
+    .timer {
+      display: none; // Hide timer
+    }
+  }
+
+  .progress-bar {
+    display: none; // Hide progress bar
+  }
+
+  .paid-btn {
+    width: 80%; // Narrower button
+    padding: 10px 15px; // Reduced padding
+    background-color: #4CAF50; // Green color
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95em; // Slightly smaller font size
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; // Reduced gap
+    margin-top: 15px; // Reduced margin
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: color.adjust(#4CAF50, $lightness: -10%); // Darker green on hover
+    }
+
+    svg {
+      font-size: 1.1em;
+    }
+  }
+}

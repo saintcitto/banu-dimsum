@@ -1,0 +1,23 @@
+// src/styles/index.scss
+@use "./abstracts/variables";
+@use "./base/reset";
+@use "./base/typography";
+@use "./layout/layout";
+@use "./components/Loader";
+@use "./components/MenuCard";
+@use "./components/CartBar";
+@use "./components/CartModal";
+@use "./pages/home";
+@use "./components/PaymentModal";
+@use "./components/QrisModal";
+
+// AFTER all @use lines, only then global helpers / overrides
+// make global transition selective (avoid `*` to prevent repaint/layout issues)
+:root {
+  // if you need global transition variables, define here
+}
+
+// Use a safe, limited global transition only for non-layout elements
+button, a, input, select, textarea, .btn, .icon {
+  transition: background-color .12s ease, color .12s ease, opacity .12s ease, transform .12s ease;
+}

@@ -1,0 +1,92 @@
+.menu-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.card-image-placeholder {
+  height: 180px;
+  background-color: var(--light-grey);
+  display: grid;
+  place-items: center;
+}
+
+.card-image-placeholder span {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  color: var(--banu-red);
+  opacity: 0.25;
+}
+
+.card-content {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--soft-black);
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: var(--grey);
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.card-price {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--banu-red);
+  margin-bottom: 1.25rem;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: auto;
+
+  .card-button-ghost {
+    display: none; /* Disable WhatsApp icon di card */
+  }
+
+  .card-button-add {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--matte-black);
+    color: var(--white);
+    font-size: 1.1rem;
+    border: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--banu-red);
+      transform: scale(1.05) rotate(90deg);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}

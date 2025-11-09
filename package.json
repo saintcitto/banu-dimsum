@@ -1,0 +1,21 @@
+{
+  "name": "banu-dimsum-gatsby",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Banu Dimsum - Gatsby port from single HTML prototype",
+  "scripts": {
+    "develop": "gatsby develop -H 0.0.0.0",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "framer-motion": "^10.18.0",
+    "gatsby": "^5.15.0",
+    "gatsby-plugin-sass": "^6.15.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^4.12.0",
+    "sass": "^1.93.2"
+  }
+}

@@ -1,0 +1,105 @@
+.cart-bar {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem);
+  max-width: 500px;
+  background-color: #d25446; /* Banu Red */
+  color: white;
+  border-radius: 9999px;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 6px 20px rgba(210, 84, 70, 0.35);
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  z-index: 1000;
+
+  &:hover {
+    background-color: #b8453c; /* darker accent red */
+    transform: translateX(-50%) scale(1.02);
+    box-shadow: 0 8px 24px rgba(210, 84, 70, 0.4);
+  }
+
+  &:active {
+    transform: translateX(-50%) scale(0.98);
+  }
+
+  .cart-bar-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex: 1;
+    min-width: 0;
+
+    .cart-item-count {
+      font-weight: 700;
+      font-size: 0.95rem;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    .cart-preview {
+      font-size: 0.85rem;
+      opacity: 0.95;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #fefefe;
+    }
+  }
+
+  .cart-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+
+    .cart-total {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #fff;
+    }
+
+    .cart-icon {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.75rem 1rem;
+    bottom: 1rem;
+
+    .cart-bar-left {
+      .cart-item-count {
+        font-size: 0.9rem;
+      }
+
+      .cart-preview {
+        font-size: 0.8rem;
+        max-width: 140px;
+      }
+    }
+
+    .cart-bar-right {
+      .cart-total {
+        font-size: 0.95rem;
+      }
+
+      .cart-icon {
+        width: 34px;
+        height: 34px;
+      }
+    }
+  }
+}
